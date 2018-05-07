@@ -115,7 +115,7 @@ int main()
     /*building the tree and
      dynamically allocating memory so that we can allocate in runtime
      */
-    int *tree = new int[4*n+1];
+    int *tree = new int[6*n+1];
     int index =1;
     int starting =0;
     int ending = n-1;
