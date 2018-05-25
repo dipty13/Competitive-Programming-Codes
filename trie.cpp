@@ -90,16 +90,16 @@ int main()
         cin>>x;
         insert(x,x.size());
     }
-    puts("ENTER NUMBER OF QUERY");
+    //puts("ENTER NUMBER OF QUERY");
     int query;
     cin >> query;
     for (int i = 1; i <= query; i++) {
         string str;
         cin>>str;
         if (search(str, str.size()))
-            puts("FOUND");
+            puts("yes");
         else
-            puts("NOT FOUND");
+            puts("no");
     }
     del(root);
     return 0;
