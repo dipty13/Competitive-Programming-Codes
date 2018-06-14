@@ -9,7 +9,12 @@ int main()
         cnt = 0;
        for(i=0;i<n;i++)
        {
-           if(i+p<n&&s[i]!=s[i+p])
+           if(i+p<n&&s[i]=='.'&&s[i+p]=='.'){
+                cnt = 1;
+                s[i]='1';
+                s[i+p] = '0';
+           }
+           else if(i+p<n&&s[i]!=s[i+p])
            {
                cnt = 1;
                if(s[i]=='.'&&s[i+p]=='1')
@@ -33,6 +38,8 @@ int main()
                }
 
            }
+
+
        }
        if(cnt)
        {
