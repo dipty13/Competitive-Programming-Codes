@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-int a[100][100];
-int LIS(int n)
+
+int LIS(int a[][100],int n)
 {
     int l[n+5];
     for(int i = 1;i<=n;i++)
@@ -11,7 +11,7 @@ int LIS(int n)
         for(int j = 1;j<i;j++)
         {
            // cout<<a[j][1]<<" "<<a[j][2]<<endl;
-            if(a[j][1]<a[i][1]&&a[j][2]<a[i][2]&&l[i]<l[j]+1)
+            if(((a[j][1]<=a[i][1]&&a[j][2]<=a[i][2])||(a[j][1]<=a[i][2]&&a[j][2]<=a[i][1]))&&l[i]<l[j]+1)
             {
                 l[i] = l[j]+1;
 //                 cout<<"l: "<<a[j][1]<<" "<<a[i][1]<<endl;
@@ -32,11 +32,12 @@ int main()
         for(i=1;i<=n;i++)
         {
             scanf("%d%d",&ll,&m);
-            a[i][1] = ll;
-            a[i][2] = m;
+            c[i][1] = ll;
+            c[i][2] = m;
             //c[x] = i;
         }
-            printf("%d\n",LIS(n));
+            printf("%d\n",LIS(c,n));
         }
+        printf("*\n");
     return 0;
 }
