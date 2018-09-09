@@ -1,21 +1,23 @@
+/**
+    by Shaila Nasrin Dipty
+    Date: 4/9/2018
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int n,d[1005],sum,i,j,a,b;
-    while(cin>>n)
+    int n,t,sum,i,j,a,b;
+    cin>>t;
+    while(t--)
     {
-        sum=0;
-        for(i=1;i<n;i++)
+        cin>>n;
+        a = 0;
+        while(n--)
         {
-            cin>>d[i];
+            cin>>i>>sum;
+            a += (i - sum);
         }
-        cin>>a>>b;
-        for(i=a;i<b;i++)
-        {
-            sum+=d[i];
-        }
-        cout<<sum<<endl;
+        cout<<a<<endl;
     }
     return 0;
 }

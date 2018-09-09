@@ -6,31 +6,22 @@ int main()
     int n,i,j,c,s;
     while(cin>>n)
     {
-        int a[n+5];
-        s = 0;
-        for(i=0;i<n;i++)
-        {
-            cin>>a[i];
-            s+=a[i];
-        }
-        int x = n/2,s1 = 0,s2= 0;
-        int p = s/2;
-        if((n==2&&a[0]==a[1])||n==1)
-        {
-            cout<<-1<<endl;
-            continue;
-        }
-        cout<<1<<endl;
-        for(i=0;i<n;i++)
-        {
-            if(a[i]+a[i]!=s&&a[i]!=s)
-            {
-                cout<<i+1<<endl;
-                break;
-            }
-        }
-        //cout<<1<<endl;
-        //cout<<endl;
+       vector<string> v(n+5);
+       string x = "";
+       for(i = 0;i<n;i++)
+       {
+           cin>>v[i];
+       }
+       x = v[0],c = 1;
+       for(i = 1;i < n;i++)
+       {
+           if(v[i] != x)
+           {
+               x = v[i];
+               c++;
+           }
+       }
+       cout<<c<<endl;
     }
     return 0;
 }
