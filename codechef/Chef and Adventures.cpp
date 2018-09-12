@@ -8,21 +8,39 @@ int main()
 {
     long long int n,m,t,s,x,y,i,j,a,b;
     cin>>t;
-    while(t--)
+    s = 0;
+   for(i = 0;i<t;i++)
     {
+       // cout<<i<<" "<<t-1<<endl;
+        if(i!=0&&i<=t-1)
+        {
+            cout<<endl;
+        }
         cin>>n>>m>>x>>y;
-
         a = 1;
         b = 1;
 
-        long long int p = 1,q=1;
+       // s = 1;
+        if(a==n&&b==m)
+        {
+           cout<<"Chefirnemo";
+           continue;
+        }
+        if(a+1==n&&b+1==m)
+        {
+            cout<<"Chefirnemo";
+           continue;
+        }
         while(a<n)
         {
+
             a+=x;
         }
         while(b<m)
         {
-            b+=y;
+
+              b+=y;
+
         }
         if(a>n)
         {
@@ -32,16 +50,18 @@ int main()
         {
             b-=y;
         }
-        cout<<a<<" "<<b<<endl;
-        if(a==n&&b==m){
-            cout<<"Chefirnemo\n";
+       // cout<<a<<" "<<b<<endl;
+        if(a==n&&b==m)
+        {
+            cout<<"Chefirnemo";
         }
-        else if(a+1==n&&b+1==m){
-            cout<<"Chefirnemo\n";
+        else if(a+1==n&&b+1==m)
+        {
+            cout<<"Chefirnemo";
+        }else{
+            cout<<"Pofik";
         }
-        else{
-            cout<<"Pofik\n";
-        }
+
     }
     return 0;
 }

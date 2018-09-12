@@ -1,44 +1,40 @@
 #include<bits/stdc++.h>
+#define ll long long int
+#define mi map<int,int>
+#define mcr map<char,int>
 using namespace std;
+int solve(int a[],int n)
+{
+    int l[n+5],i,x =0,y=0;
+    for(i = 1;i<=n;i++)
+    {
+        if(a[i]==1)
+        {
+            if(x>0)
+            {
+                x--;
+            }
+        }else{
+            x++;
+        }
+        y = max(x,y);
 
+    }
+
+
+   return y;
+}
 int main()
 {
-    int n,i,j,c,k,x;
+    ll n,i,j,k,c;
     while(cin>>n)
     {
-        int a[n+5], o = 0,m = 0;
-        c = 0;
-        k = 0;
-        for(i= 0;i<n;i++)
+        int a[n+5];
+        for(i = 1;i <= n;i++)
         {
             cin>>a[i];
         }
-         for(i= 0;i<n - 1;i++)
-        {
-
-            if(a[i]==0)
-            {
-                c++;
-                m = max(c,m);
-
-            }else if(c>0&&a[i]==1)
-            {
-                k++;
-            }
-            else if(a[i]==1){
-                o++;
-            }
-        }
-        if(m>0&&a[i]==1)
-        {
-            o++;
-        }else if(m>0&&a[i]==0)
-        {
-            m++;
-        }
-
-        cout<<o+m+k<<endl;
-
+       cout<<solve(a,n)<<endl;
     }
     return 0;
 }
