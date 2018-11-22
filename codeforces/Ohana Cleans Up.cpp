@@ -1,26 +1,25 @@
 #include<bits/stdc++.h>
+#define ll long long int
+#define mi map<int,int>
+#define mcr map<char,int>
 using namespace std;
 
 int main()
 {
-    int n,i,j,a,c,k;
-    while(cin>>n)
+    ll n, i, mx;
+    while(cin >> n)
     {
-        string s[n+5];
-        for(i = 0; i<n;i++)
-        {
-            cin>>a[i];
-        }
-        map<int,int> m;
-        for(i = 0; i<n;i++)
-        {
-            for(j = 0;j<n;j++){
-                if(a[i][j]=='0')
-                {
-                    m[j]++;
-                }
-            }
-        }
+        string s;
+        map<string, ll> m;
+        mx = -1;
+       for(i = 0; i < n; i++)
+       {
+           cin >> s;
+           m[s]++;
+           mx = max(mx, m[s]);
+       }
+        cout << mx << endl;
+
     }
     return 0;
 }

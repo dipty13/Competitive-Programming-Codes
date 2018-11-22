@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-    int n,i,j,k,c;
-    while(cin>>n)
-    {
-
-    }
+   string s ="ABCD";
+   for(int i= 0 ;i <s.size();i++)
+   {
+       printf("%c",s[i]+1);
+   }
     return 0;
 }
 
