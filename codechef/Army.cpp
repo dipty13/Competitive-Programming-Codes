@@ -1,6 +1,6 @@
 /**
     by Shaila Nasrin Dipty
-    Date: 4/9/2018
+    Date: 29/12/2018
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -11,13 +11,21 @@ int main()
     while(t--)
     {
         cin>>n;
-        a = 0;
-        while(n--)
+        a = 1;
+        for(i = 1; i <= n; i++)
         {
-            cin>>i>>sum;
-            a += (i - sum);
+            for(j = 1; j <= n; j++)
+            {
+                if(j == n)
+                {
+                    cout << a;
+                }else{
+                cout << a << " ";
+                }
+                a++;
+            }
+            cout << endl;
         }
-        cout<<a<<endl;
     }
     return 0;
 }

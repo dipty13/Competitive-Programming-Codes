@@ -6,19 +6,40 @@ using namespace std;
 
 int main()
 {
-    int n, c, k, mx, i, j;
-    while(cin >> n >> k)
+    ll n, k, h, m, i, sum, j, c;
+
+    while(cin >> n >> m >> k)
     {
         int a[n + 5];
-        map<int , int> m;
-        map<int , int>:: iterator it;
-        for(i = 0; i < n; i++)
+        c = 0;
+        for(i = 1; i <= n; i++)
         {
             cin >> a[i];
-            m[a[i]]++;
+
         }
-        c = m.size();
-       cout << (c * (c / 3+ c % 3) * k) - (c * k) + (c / 3+ c % 3)<< endl;
+        for(i = 1; i <= n; i++)
+        {
+            if(a[i] == 2)
+            {
+                if(k > 0)
+                {
+                    k--;
+                }else if(m > 0)
+                {
+                    m--;
+                }else{
+                    c++;
+                }
+            }else{
+                if(m > 0)
+                {
+                    m--;
+                }else{
+                    c++;
+                }
+            }
+        }
+        cout << c << endl;
 
     }
     return 0;
