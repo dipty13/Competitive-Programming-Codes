@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -21,11 +20,14 @@ int main()
             for(int j = i + 1; j < n; j++)
             {
                 x = a[i] + a[j];
-               int y = upper_bound(a , a + n, x) - a;
-               c += n - y;
+               int y = upper_bound(a , a + n, x - 1) - a ;
+              // cout << y <<  endl;
+               c += y - j - 1;
+
+             //  cout << c << endl;
             }
         }
-		printf("Case %d: %d\n",k++, c);
+		printf("Case %d: %d\n", ++k, c);
 	 }
 	 return 0;
 

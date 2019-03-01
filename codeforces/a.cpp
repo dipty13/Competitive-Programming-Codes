@@ -5,27 +5,49 @@
 using namespace std;
 int main()
 {
-  int n, k,i ,j, c;
-  while(cin >> n >> k){
-    int a[n + 5], b[n + 5];
-    pair<int, int> m[n+5];
-    for(i = 0; i < n; i++){
-      cin >> a[i];
+  int n, i, t, v, j, c, k, w1, w2, h1, h2;
+  while(cin >> n)
+  {
+    int a[n + 5];
+    ll sum = 0;
+    map<int, int> m;
+    for(i = 0; i < n; i++)
+    {
+        cin >> a[i];
     }
-    for(i = 0; i < n; i++){
-      cin >> b[i];
+    v = ceil(n / 2.0), c = 0;
+    for(i = 0; i < n; i++)
+    {
+        if(a[i] / 1 > 0)
+        {
+            c++;
+        }
+
     }
-    for(i = 0; i < n; i++){
-       m[i] = {a[i] - b[i], i};
+    if(c < v)
+    {
+        c = 0;
+        for(i = 0; i < n; i++)
+    {
+        if(a[i] / -1 > 0)
+        {
+            c++;
+        }
+
     }
-    sort(m, m+ n);
-    c = 0;
-    for(i = 0; i < k; i++){
-       c += a[m[i].second];
+    if(c >= v)
+    {
+    cout << -1 << endl;
+    continue;
     }
-    for(i = k; i < n; i++){
-       c += min(a[m[i].second], b[m[i].second]);
     }
-    cout << c<< endl;
+    if(c >= v)
+    {
+
+        cout << 1 << endl;
+    }else{
+        cout << 0 << endl;
+    }
   }
 }
+

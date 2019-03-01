@@ -7,36 +7,122 @@ using namespace std;
 int main()
 {
     ll n, c, k, mx, i, j;
-    while(cin >> n >> k)
+    while(cin >> n )
     {
-       ll dp[n + k + 5];
-       memset(dp, 0, sizeof(dp));
-       set<ll> s;
-       set<ll>::iterator it;
-       ll a[n + k + 5],b[n + k + 5];
-       a[0] = 0;
+       ll a[n * 2 + 5];
+       mx = 0;
+       n = n * 2;
+       map<ll, ll> m;
        for(i = 1; i <= n; i++)
        {
            cin >> a[i];
-           s.insert(a[i]);
-           //dp[i] = a[i] - a[i - 1];
+           mx = max(a[i], mx);
+
        }
-       sort(a + 1, a + n + 1);
-       i = 1;
-       for(it = s.begin(); it != s.end(); it++)
-       {
-           b[i] = *it;
-           i++;
-       }
-       b[0] = 0;
-       for(i = 1;i <= s.size();i++)
-       {
-           dp[i] = b[i] - b[i - 1];
-       }
-        for(i = 1; i <= k; i++)
-        {
-            cout << dp[i] << endl;
-        }
+
+           ll c = 1, cnt = 0, x = 0;
+           for(j = 1; ; j++)
+           {
+                if(c > mx)
+               {
+                   break;
+               }
+               ll p = 0, q;
+               for(i = 1; i <= j ; i++){
+               if(a[i] == c && m[i] != 1)
+               {
+                if(c == 1)
+                {
+                    x = i;
+                    cnt += x - 1;
+                }else{
+                    cnt += abs(x - i);
+                    x = i;
+                }
+
+
+                   // cout <<abs(x - i) << " " <<a[i] << "  " << c << endl;
+                   c++;
+                   p = 1;
+                   j = i;
+                   m[i] = 1;
+                   break;
+               }
+               }
+               if(p == 0){
+               for(i = j + 1; i <= n ; i++){
+               if(a[i] == c && m[i] != 1)
+               {
+
+                      if(c == 1)
+                {
+                    x = i;
+                    cnt += x  - 1;
+                }else{
+                    cnt += abs(x - i);
+                    x = i;
+                }
+
+                    //cout << abs(x - i) <<" " <<a[i] << "  " << c << endl;
+                   c++;
+                   j = i;
+                   m[i] = 1;
+                   break;
+               }
+               }
+               }
+           }
+          // cout << endl;
+           c = 1, x = 0;
+          for(j = 1; ; j++)
+           {
+               if(c > mx)
+               {
+                   break;
+               }
+               ll p = 0;
+               for(i = 1; i <= j ; i++){
+               if(a[i] == c && m[i] != 1)
+               {
+
+                  if(c == 1)
+                {
+                    x = i;
+                    cnt += x - 1;
+                }else{
+                    cnt += abs(x - i);
+                    x = i;
+                }
+                  // cout << abs(x - i) <<" "<<a[i] << " " << c << endl;;
+                   c++;
+                   p = 1;
+                   j = i;
+                   break;
+               }
+               }
+               if(p == 0){
+               for(i = j + 1; i <= n ; i++){
+               if(a[i] == c && m[i] != 1)
+               {
+
+                    if(c == 1)
+                {
+                    x = i;
+                    cnt += x - 1;
+                }else{
+                    cnt += abs(x - i);
+                    x = i;
+                }
+
+                   //cout <<abs(x - i)<< " "<< a[i] << " " << c<< endl;
+                   c++;
+                   j = i;
+                   break;
+               }
+               }
+               }
+           }
+       cout <<  cnt << endl;
 
     }
     return 0;
