@@ -1,31 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
-void bruteforce()
-{
-
-}
 int main()
 {
-    int p = 0;
-    while(p<10)
+    long long int  i,a, b, c, d, x, y;
+    while(cin >> a >> b >> c >> d)
     {
-        int nt = rand()%10 + 2;
-        int mt = rand()%10 + 2;
-        int kt = rand()%10 + 2;
-        int xt = rand()%10 + 2;
-        int yt = rand()%10 + 2;
-        cout<<"nt: "<<nt<<" mt: "<<mt<<" kt: "<<kt<<" xt: "<<xt<<" yt: "<<yt<<endl;
-        p++;
+        map<char, long long int> m;
+        string s = "";
+        if(a == 0 && b == 0 && c == 0 && d == 0){
+            cout << 1 << endl;
+            continue;
+        }else if(a == 0 && d == 0 && c == 0){
+            cout << 1 << endl;
+            continue;
+        }else if(a == 0 && d == 0){
+            cout << 0 << endl;
+            continue;
+        }
+       x = 2 * a + b + c;
+       y = 2 * d + b + c;
+       if(x == y){
+        cout << 1 << endl;
+       }else{
+           cout << 0 << endl;
+       }
 
     }
-    int n,c,m,x,y;
-    /*while(cin>>n)
-    {
-        long long k,i,j;
-        cin>>m>>k>>x>>y;
-
-
-    }*/
 
     return 0;
 }
