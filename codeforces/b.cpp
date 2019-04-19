@@ -6,37 +6,49 @@ using namespace std;
 
 int main()
 {
-    ll n, c, k, mx, i, j;
+    int n, c, k, mx, i, j;
     while(cin >> n )
     {
-       ll a[n + 5], b[n + 5];
-
-       for(i = 1; i <= n; i++)
+       vector<int> v(n + 5);
+       vector<int>::iterator it;
+       int a[n + 5];
+       set<int> s;
+       set<int>::iterator st;
+       for(i = 0; i < n; i++)
        {
-           cin >> a[i];
+           cin >> v[i];
+           s.insert(v[i]);
        }
-       j = n;
-       b[n] = a[n];
-       for(i = n - 1; i >= 1; i--)
+       if(n == 1){
+        cout << 0 << endl;
+        continue;
+       }
+       st = s.begin();
+       k = *st;
+       st++;
+       int ans = abs(*st - k);
+       k = *st;
+       st++;
+       int f = 1;
+       for(; st != s.end(); st++)
        {
-           if(a[i] >= b[i + 1]){
-             //cout << "a[i + 1]: "<< a[i + 1] << " a[i]: "<< a[i] << endl;
-             b[i] = b[i + 1] - 1;
-           if(b[i] < 0){
-             b[i] = 0;
-           }
-           }else{
-               b[i] = a[i];
-           }
+            if(abs(k - *st) != ans){
+                  //  cout << *st << endl;
+                f = 0;
+                break;
+            }else{
+                k = *st;
+            }
        }
-       ll sum = 0;
-       for(i = 1; i <= n; i++)
-       {
-           //cout << b[i] << " ";
-           sum += b[i];
-       }
-        cout << sum << endl;
-
+        if(!f){
+            cout << -1 << endl;
+        }else{
+            if(ans % 2 == 0){
+                cout << ans / 2 << endl;
+            }else{
+                cout << ans << endl;
+            }
+        }
     }
     return 0;
 }

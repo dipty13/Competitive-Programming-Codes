@@ -5,24 +5,24 @@
 using namespace std;
 int main()
 {
-  int n, i, m, t, j, k = 0, c, q;
-  while(cin >> n)
-  {
-      string s, p = "";
-      cin >> s;
-      q = 0, c = 0;
-      for(i = 0; i < n; i++){
-            stringstream ss;
-            ss << s[i];
-            ss >> q;
-            if(q % 2 == 0 ){
-                //cout << "s[i]: " << s[i] << " q: " << q << endl;
-                c += i + 1;
-            }
+    int n, i, m, t, j, k = 0, c, q,cnt;
+    int a[1000];
+    while(cin >> a[0])
+    {
+        //int a[n + 5];
+        c = 0, cnt = 0;
+        for(i = 1; i <= 3; i++)
+        {
+            cin >> a[i];
+        }
+        sort(a, a + 4);
+        int p, q, r;
+        p = a[3] - a[2];
+        q = a[3] - a[1];
+        r = a[3] - a[0];
+        cout << p << " " << q << " " << r << endl;
 
-      }
-      cout << c << endl;
-  }
-  return 0;
+    }
+    return 0;
 }
 
