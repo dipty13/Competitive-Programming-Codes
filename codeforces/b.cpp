@@ -6,48 +6,18 @@ using namespace std;
 
 int main()
 {
-    int n, c, k, mx, i, j;
-    while(cin >> n )
+    ll n, c, k, m, mx, i, j,cnt;
+    while(cin >> n)
     {
-       vector<int> v(n + 5);
-       vector<int>::iterator it;
-       int a[n + 5];
-       set<int> s;
-       set<int>::iterator st;
-       for(i = 0; i < n; i++)
-       {
-           cin >> v[i];
-           s.insert(v[i]);
-       }
-       if(n == 1){
-        cout << 0 << endl;
-        continue;
-       }
-       st = s.begin();
-       k = *st;
-       st++;
-       int ans = abs(*st - k);
-       k = *st;
-       st++;
-       int f = 1;
-       for(; st != s.end(); st++)
-       {
-            if(abs(k - *st) != ans){
-                  //  cout << *st << endl;
-                f = 0;
-                break;
-            }else{
-                k = *st;
-            }
-       }
-        if(!f){
-            cout << -1 << endl;
+        ll a[n + 5];
+        for(i = 0; i < n; i++){
+            cin >> a[i];
+        }
+        sort(a, a + n);
+        if(a[0] >= 1){
+            cout << 1 << endl;
         }else{
-            if(ans % 2 == 0){
-                cout << ans / 2 << endl;
-            }else{
-                cout << ans << endl;
-            }
+         cout << 0 << endl;
         }
     }
     return 0;
