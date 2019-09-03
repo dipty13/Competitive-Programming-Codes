@@ -1,12 +1,18 @@
 #include<bits/stdc++.h>
+#define ll long long int
 using namespace std;
 int main()
 {
-    long long int n,x;
+    ll n,x;
     while(cin>>n)
     {
-        x= (n/2)+1;
-        cout<<x<<endl;
+        vector<ll> v(n + 5);
+        for(int i = 0; i < n; i++){
+            cin >> v[i];
+        }
+        for(int i = 1; i < n; i++){
+
+        }
     }
     return 0;
 }
