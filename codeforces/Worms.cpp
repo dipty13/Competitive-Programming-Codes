@@ -1,29 +1,49 @@
 #include<bits/stdc++.h>
+#define ll long long int
 using namespace std;
+bool cmp(pair<ll, ll>& a, pair<ll, ll>& b)
+{
+  return a.first - a.second > b.first - b.second;
+}
 int main()
 {
-    long long int  i,a, b, c, d, x, y;
-    while(cin >> a >> b >> c >> d)
+    long long int  t, n, i,a, b, c, d, x, y;
+    cin >> t;
+    while(t--)
     {
-        map<char, long long int> m;
-        string s = "";
-        if(a == 0 && b == 0 && c == 0 && d == 0){
-            cout << 1 << endl;
-            continue;
-        }else if(a == 0 && d == 0 && c == 0){
-            cout << 1 << endl;
-            continue;
-        }else if(a == 0 && d == 0){
-            cout << 0 << endl;
+        cin >> n >> x;
+        vector<pair<ll, ll> > v(n + 5);
+        y = n;
+        while(n--){
+            cin >> a >> b;
+            v.push_back({a, b});
+        }
+        sort(v.begin(), v.end(), cmp);
+        if(v[0].first <= v[0].second){
+            cout << -1 << endl;
             continue;
         }
-       x = 2 * a + b + c;
-       y = 2 * d + b + c;
-       if(x == y){
-        cout << 1 << endl;
-       }else{
-           cout << 0 << endl;
-       }
+        c = 0;
+        ll p = 0;
+        while(x != 0 && c <= y){
+            x -= v[p].first;
+            cout << "x1: " << x << endl;
+            x += v[p].second;
+            cout << "x2: " << x << endl;
+            if(x == 0){
+                break;
+            }
+            if(x < 0){
+                p++;
+            }
+            //cout << x << endl;
+            c++;
+        }
+        if(c > y){
+            cout << -1 << endl;
+        }else{
+        cout << c + 1 << endl;
+        }
 
     }
 

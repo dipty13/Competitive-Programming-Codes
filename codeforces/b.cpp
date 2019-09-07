@@ -6,18 +6,27 @@ using namespace std;
 
 int main()
 {
-    ll n, c, k, m, mx, i, j,cnt;
-    while(cin >> n)
+    ll n, t, k, m, a, b, c;
+    cin >> t;
+    while(t--)
     {
-        ll a[n + 5];
-        for(i = 0; i < n; i++){
-            cin >> a[i];
-        }
-        sort(a, a + n);
-        if(a[0] >= 1){
+        cin >> a >> b >> c;
+        if(a <= b && c <= b - a){
+            cout << 0 << endl;
+        }else if(a > b && c == 0){
             cout << 1 << endl;
-        }else{
-         cout << 0 << endl;
+        }else if(a > b && c == 1){
+            cout << 2 << endl;
+        }else if(a > b && c != 1 && c > 0){
+            cout << (a - b) + 1 << endl;
+        }else if(a < b && c > b - a){
+            cout << (c - (b - a)) -1 << endl;
+        }else if(a < b && c <= b - a){
+            cout << 0 << endl;
+        }else if(a == b && c > 0){
+            cout << c << endl;
+        }else if(a == b && c <= 0){
+            cout << 0 << endl;
         }
     }
     return 0;
