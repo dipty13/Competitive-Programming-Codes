@@ -49,7 +49,7 @@ vector<vector<int> >  maxSumIncreasingSubsequence(vector<int> a) {
 
 int main()
 {
-    vector<int> a = {10, 70, 20, 30, 50, 11, 30};
+    vector<int> a = {8 ,54, 17, 58, 45};
     vector<vector<int> > ans = maxSumIncreasingSubsequence(a);//);
      cout << endl << ans[0][0] << endl;
         for(int j = 0; j < ans[1].size(); j++){
