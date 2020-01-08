@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<vector>
 #define ll long long int
 using namespace std;
 bool cmp(pair<ll, ll>& a, pair<ll, ll>& b)
