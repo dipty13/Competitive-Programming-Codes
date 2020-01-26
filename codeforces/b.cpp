@@ -7,27 +7,14 @@ using namespace std;
 int main()
 {
     ll n, t, k, m, a, b, c;
-    cin >> t;
-    while(t--)
+    while(cin >> n)
     {
-        cin >> a >> b >> c;
-        if(a <= b && c <= b - a){
-            cout << 0 << endl;
-        }else if(a > b && c == 0){
-            cout << 1 << endl;
-        }else if(a > b && c == 1){
-            cout << 2 << endl;
-        }else if(a > b && c != 1 && c > 0){
-            cout << (a - b) + 1 << endl;
-        }else if(a < b && c > b - a){
-            cout << (c - (b - a)) -1 << endl;
-        }else if(a < b && c <= b - a){
-            cout << 0 << endl;
-        }else if(a == b && c > 0){
-            cout << c << endl;
-        }else if(a == b && c <= 0){
-            cout << 0 << endl;
+        double x =0.0, p = 1.0;
+        while(n >= 1){
+            x += (p/ n);
+            n--;
         }
+        cout << fixed<< setprecision(12) << x << endl;
     }
     return 0;
 }
