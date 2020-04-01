@@ -8,19 +8,21 @@ int main()
     ll m, h, n, i, j, c;
     while(cin >> n)
     {
-        string s;
+        ll a, b, ans;
         while(n--){
-            cin >> s;
-            ll sum = 0;
-            for(int i = 0; i < s.size(); i++){
-                sum +=(int)(s[i] - 48);
-            }
-            cout << sum << endl;
-            if(sum %3 == 0 || sum % 6 == 0 || sum % 9 == 0){
-                cout << "red\n";
-            }else{
-                cout << "cyan\n";
-            }
+           cin >> a >> b;
+           if( a >= b){
+                if( a % b != 0){
+                    c = a / b;
+                    h = b * (c + 1);
+                    ans = h - a;
+                }else{
+                    ans = 0;
+                }
+           }else{
+               ans = b - a;
+           }
+           cout << ans << endl;
         }
     }
 
