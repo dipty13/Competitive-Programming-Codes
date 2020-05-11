@@ -7,14 +7,15 @@ using namespace std;
 int main()
 {
     ll n, t, k, m, a, b, c;
-    while(cin >> n)
+    cin >> t;
+    while(t--)
     {
-        double x =0.0, p = 1.0;
-        while(n >= 1){
-            x += (p/ n);
-            n--;
-        }
-        cout << fixed<< setprecision(12) << x << endl;
+     cin >> n >> m;
+     if((n <= 2 && m <= 2) || (n < 2) || (m < 2)){
+        cout << "YES\n";
+     }else{
+         cout << "NO\n";
+     }
     }
     return 0;
 }
