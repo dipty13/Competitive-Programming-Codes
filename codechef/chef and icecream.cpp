@@ -21,9 +21,14 @@ int main()
             if(v[i] - 5 == 0){
                 mp[v[i]]++;
                 c++;
-            }else if(mp[v[i] - 5] > 0 || mp[5] + mp[10] + mp[15]  >= v[i] - 5){
+            }else if(mp[v[i] - 5] > 0){
                 mp[v[i]]++;
                 mp[v[i] - 5]--;
+                c++;
+            }else if(v[i] - 5 == 10 && mp[5] >= 2){
+                mp[v[i]]++;
+                mp[5]--;
+                mp[5]--;
                 c++;
             }
         }
