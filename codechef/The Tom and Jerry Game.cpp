@@ -16,6 +16,7 @@ int main()
         if(n == 1){
             cout << 0 << endl;
         }else if(n % 2 == 0){
+            cout << "Test: " << log(n) << endl;
             while(n % 2 != 1){
                 n /= 2;
             }
