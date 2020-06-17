@@ -3,6 +3,24 @@
 #define mi map<int,int>
 #define mcr map<char,int>
 using namespace std;
+set<ll> ones;
+set<ll>::iterator it;
+
+int get_prev(ll x){
+	it = ones.lower_bound(x);
+	if (it == ones.begin())
+		return INT_MIN;
+	--it;
+	return *it;
+}
+
+int get_next(ll x){
+	it = ones.lower_bound(x);
+	if (it == ones.end())
+		return INT_MAX;
+	return *it;
+}
+
 int main()
 {
     ll n, t, k, m, a, b, c;
@@ -10,35 +28,20 @@ int main()
     while(t--)
     {
         cin >> n >> k;
-        char s[n + 5];
-        cin >> (s + 1);
+        string s;
+        cin >> s;
         c = 0;
-        vector<ll> v = {0};
-        for(int i = 1; i <= n; i++){
-            if(s[i] == '1'){
-                v[i] = v[i - 1] + 1;
-            }else{
-                v[i] = v[i - 1];
-            }
+        ones.clear();
+        for(int i = 0; i < n; i++){
+            if(s[i] == '1')
+                ones.insert(i);
         }
 
-        if(s[1] == '0' && v[1 + k - 1] <= 0){
-            v[1] = 1;
-            v[1 + k - 1] = 1;
-            s[1] = '1';
-            c++;
-        }
-        for(int i = k + 1; i <= n; i += k + 1){
-           // cout << s << " " << i << endl;
-            if(s[i] == '0' && v[i + k - 1] == v[i] && v[i - k - 1] == v[i]){
-               // cout << i << endl;
-                   // cout << "i: " << i << " v[i]: " << v[i] << " v[i + k - 1]: " << v[i + k - 1] << endl;
-//                v[i + k - 1]  += 1;
-//                v[i - k - 1] += 1;
-//                v[i] += 1;
-                s[i] = '1';
-                c++;
-            }
+       for(int i = 0; i < n; i++){
+            if (get_prev(i) < i - k && get_next(i) > i + k){
+			  c++;
+			  ones.insert(i);
+		  }
         }
         cout << c << endl;
     }
