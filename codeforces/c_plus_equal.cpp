@@ -11,7 +11,7 @@ int main()
     {
         cin >> a >> b >> n;
         c = 0;
-        while(a < n && b < n){
+        while(a <= n && b <= n){
             if(a < b){
                 a += b;
             }else{
