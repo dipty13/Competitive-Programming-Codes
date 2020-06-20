@@ -6,18 +6,25 @@ using namespace std;
 ofstream o("output.out");
 int main()
 {
-    ll n, t, k, m, a, b, c;
-    o << "{";
-     for(ll i = 0; i < 10000000000000000; i++){
-            o << "'s',";
+    ll n, t, k, m, a, b, i, c, j;
+    while(cin >> k){
+        vector<ll> v(10, 1);
+        string s = "codeforces";
+        ll sum = 1, temp = 0;
+        while(sum < k){
+            v[temp]++;
+            temp = (temp + 1) % 10;
+            sum = 1;
+            for(i = 0; i < 10; i++){
+                sum *= v[i];
+            }
         }
-        o << "};";
-//        cin >> n;
-//        string s = "codeforces";
-//        cout << s;
-        for(ll i = 0; i < n - 1; i++){
-            cout << 's';
+        for(i = 0; i < 10; i++){
+            for(j = 0; j < v[i]; j++){
+                cout << s[i];
+            }
         }
-        //cout << endl;
+        cout << endl;
+    }
     return 0;
 }
