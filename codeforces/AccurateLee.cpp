@@ -13,20 +13,34 @@ int main()
         string s, ans = "";
         cin.ignore();
         cin >> s;
-        ans += s[n - 1];
-        int j = 0;
-        for(int i = n - 2; i >= 0; i--){
-            if(s[i] <= ans[j]){
-                ans += s[i];
-                j++;
+        ll zero = 0, one = 0;
+        for(int i = 0; i < n; i++){
+            if(s[i] == '0'){
+                zero++;
+            }else{
+                break;
             }
         }
-        reverse(ans.begin(), ans.end());
-        if(ans[ans.size() -1] == '0'){
-            cout << "0\n";
+
+        for(int i = n - 1; i >= 0; i--){
+           if(s[i] == '1'){
+                one++;
+           }else{
+               break;
+           }
+        }
+        if(zero + one == n){
+            cout << s <<endl;
             continue;
         }
-        cout << ans << endl;
+        for(int i = 0; i < zero; i++){
+            cout << "0";
+        }
+              cout << "0";
+        for(int i = 0; i < one; i++){
+            cout << "1";
+        }
+        cout <<endl;
     }
     return 0;
 }
