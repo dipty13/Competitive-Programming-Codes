@@ -10,21 +10,20 @@ int main()
     while(t--)
     {
         cin >> n;
+        c = 0;
+        while(n % 3 == 0){
+            if(n % 2){
+                n *= 2;
+                c++;
+            }
+            n /= 6;
+            c++;
+        }
         if(n == 1){
-            cout << 0 << endl;
-            continue;
-        }
-        a = 6;
-        if(n == a){
-            cout << 1 << endl;
-        }else if( n < a && n == 3){
-            cout << 2 << endl;
-        }else if(n < a && n != 3){
-            cout << -1 << endl;
-        }else if(n > a && n % 6 != 0){
+            cout << c << endl;
+        }else{
             cout << -1 << endl;
         }
-        cout << __gcd(a, n) << endl;
     }
     return 0;
 }
