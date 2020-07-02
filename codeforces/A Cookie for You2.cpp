@@ -10,7 +10,7 @@ int main()
     while(t--)
     {
         cin >> a >> b >> n >> m;
-       if(a < b && a < m){
+       if(a == 0 && a < b && a < m){
          cout << "No\n";
        }else if(b <= a && b < m){
            cout << "No\n";
