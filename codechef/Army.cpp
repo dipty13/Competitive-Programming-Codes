@@ -1,31 +1,44 @@
-/**
-    by Shaila Nasrin Dipty
-    Date: 29/06/2019
-*/
 #include<bits/stdc++.h>
+#define ll long long int
 using namespace std;
 int main()
 {
-    int n,t,sum,i,j,a,b;
+    ll n,t,sum,i,j,a,b;
     cin>>t;
     while(t--)
     {
         cin>>n;
-        a = 1;
-        for(i = 1; i <= n; i++)
+        vector<ll> v(n), w(n);
+        for(i = 0; i < n; i++)
         {
-            for(j = 1; j <= n; j++)
-            {
-                if(j == n)
-                {
-                    cout << a;
-                }else{
-                cout << a << " ";
-                }
-                a++;
-            }
-            cout << endl;
+            cin >> v[i];
         }
+        for(i = 0; i < n; i++)
+        {
+            cin >> w[i];
+        }
+        sort(v.begin(), v.end());
+        sort(w.begin(), w.end());
+        ll l = 0, r = 0,c = 0;
+        while(l < r)
+        {
+            if(v[r] == w[l])
+            {
+                l++;
+                r++;
+            }
+            else if(v[r] != w[l])
+            {
+                r++;
+            }
+            else if(w[r] == w[l] && v[l] == v[r])
+            {
+                swap(v[l], w[r]);
+                r = l;
+                c++;
+            }
+        }
+        cout << c << endl;
     }
     return 0;
 }

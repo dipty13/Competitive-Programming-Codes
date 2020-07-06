@@ -6,10 +6,10 @@ using namespace std;
 int main()
 {
     ll n, t, k, m, a, b, c, i;
-    cin >> t;
-    while(t--)
+    //cin >> t;
+    while(cin >> n)
     {
-        cin >> n;
+        //cin >> n;
         vector<ll> v(n);
         map<ll, ll> m;
         ll odd = 0, even = 0;
@@ -23,11 +23,15 @@ int main()
                 m[0]++;
             }
         }
+        if(n == 2 && (m[0] == 2 || m[1] == 2)){
+            cout << min(v[0], v[1]) << endl;
+            continue;
+        }
         if(m[0] == m[1] || m[0] - 1 == m[1] || m[1] - 1 == m[0]){
             cout << 0 << endl;
         }else{
             a = abs(even - odd);
-            cout << a / 2 << endl;
+            cout << a << endl;
         }
     }
     return 0;
