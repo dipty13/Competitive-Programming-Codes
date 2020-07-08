@@ -7,29 +7,120 @@ using namespace std;
 int main()
 {
     ll n,i,j,k,c;
-    while(cin>>n>>k)
+    string s;
+    while(cin >> s)
     {
-        c = 0;
-        j = 0;
-        if(n==1&&k==1)
+        if(s.size() == 1)
         {
-            cout<<0<<endl;
-            continue;
+            k = (int) (s[0] - 48);
+            if(k % 8 == 0)
+            {
+                cout << "Yes\n";
+                cout << k << endl;
+                continue;
+            }
+            else
+            {
+                cout << "No\n";
+                continue;
+            }
         }
-       while(n>0&& k>0)
-       {
-           if(n<k)
-           {
-               n++;
-               k-=2;
-           }else{
-                k++;
-                n-=2;
-           }
-           c++;
-       }
+        if(s.size() == 2)
+        {
+            k = (int) (s[0] - 48);
+            c = (int) (s[1] - 48);
+            if((k * 10 + c) % 8 == 0)
+            {
+                cout << "YES\n";
+                cout << s << endl;
+                continue;
+            }
+            else  if(k % 8 == 0)
+            {
+                cout << "YES\n";
+                cout << k << endl;
+                continue;
+            }
+            else  if(c % 8 == 0)
+            {
+                cout << "YES\n";
+                cout << c << endl;
+                continue;
+            }
+            else
+            {
+                cout << "NO\n";
+                continue;
+            }
+        }
+        bool flag = false;
+        ll p = 0, q = 0;
+        for(ll i = 0; i < s.size(); i++)
+        {
+            k = (int)s[i] - 48;
+            if(k % 8 == 0)
+            {
+                cout << "YES\n";
+                cout << k << endl;
+                flag = true;
+                break;
+            }
+            for(ll j = i + 1; j < s.size(); j++)
+            {
+                ll x = 0;
+                if(i != j)
+                {
+                    p = (int)s[j] - 48;
+                    x = k * 10 + p;
+                    if(x % 8 == 0)
+                    {
+                        cout << "YES\n";
+                        cout << x << endl;
+                        flag = true;
+                        break;
+                    }
+                    else if(p % 8 == 0)
+                    {
+                        cout << "YES\n";
+                        cout << p << endl;
+                        flag = true;
+                        break;
+                    }
 
-       cout<<c<<endl;
+                    for(ll l = j + 1; l < s.size(); l++)
+                    {
+                        if(i != l && j != l)
+                        {
+                            q = (int)s[l] - 48;
+                            ll y = x * 10 + q;
+                            if(y % 8 == 0)
+                            {
+                                cout << "YES\n";
+                                cout << y << endl;
+                                flag = true;
+                                break;
+                            }
+                            else if(q% 8 == 0)
+                            {
+                                cout << "YES\n";
+                                cout << q << endl;
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(flag)
+                    break;
+
+            }
+            if(flag)
+                break;
+        }
+        if(!flag)
+        {
+            cout << "NO\n";
+        }
     }
     return 0;
 }
