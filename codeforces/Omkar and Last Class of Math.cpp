@@ -7,23 +7,27 @@ int main()
 {
     ll n, t, k, a, b, c, x, y;
     cin >> t;
-    while(t--){
-       cin >> n;
-       map<ll, ll> m;
-       ll mn = INT_MAX, x = 0;
-       for(ll i = 1; i <= 9 && i < n; i++){
-            ll p = i, q = n - i;
-           if(m[p] != 1 && m[q] != 1){
-             x = (p * q) / __gcd(p,q);
-             m[p] = 1;
-             m[q] = 1;
-           }
-           if(mn > x){
-            mn = x;
-            a = p, b = q;
-           }
-       }
-       cout << a << " " << b  << endl;
+    while(t--)
+    {
+        cin >> n;
+        map<ll, ll> m;
+        ll flag = 0;
+        if(n % 2 == 0)
+        {
+            cout << n/2 << " " << (n / 2) << endl;
+            continue;
+        }
+        for(ll i = 2; i * i<= n; i++)
+        {
+            if(n % i == 0)
+            {
+                cout << n / i << " " << n - (n/i) << endl;
+                flag = 1;
+                break;
+            }
+        }
+        if(flag == 0)
+            cout << 1 << " " << n - 1  << endl;
     }
     return 0;
 }

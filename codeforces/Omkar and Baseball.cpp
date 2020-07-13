@@ -10,25 +10,27 @@ int main()
     while(t--)
     {
         cin >> n;
-        vector<ll> v(n + 1);
-        for(ll i = 1; i <= n; i++)
+        vector<ll> v(n + 1), s;
+        for(ll i = 0; i < n; i++)
         {
             cin >> v[i];
-        }
-        c = 0;
-        for(ll i = 2; i <= n; i++)
-        {
-            if(v[i] < v[i - 1])
-            {
-                c++;
+            if(v[i] - 1 != i){
+                s.push_back(i);
             }
         }
-        if(c)
-        {
-            cout << 2 << endl;
+        if(s.size() == 0){
+            cout << 0 << endl;
+            continue;
         }
-        else
-            cout << 0<< endl;
+        c = 1;
+        for(ll i = 0; i < s.size() - 1; i++)
+        {
+            if(s[i + 1] - s[i] != 1){
+                c = 2;
+                break;
+            }
+        }
+            cout << c << endl;
     }
     return 0;
 }
