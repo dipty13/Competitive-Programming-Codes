@@ -15,26 +15,15 @@ int main()
         {
             cin >> v[i];
         }
-        ll x = 0, y = 1, z = n - 1, flag = 0;
-        while(x < z){
-            if(v[y] > v[x] && v[y] < v[z]){
-                flag = 1;
+        ll flag = 1;
+        for(ll i = 1; i < n - 1; i++){
+            if(v[i] > v[i - 1] && v[i] > v[ i+ 1]){
+                cout << "YES\n" <<i << " " << i + 1 << " " << i + 2 << endl;
+                flag = 0;
                 break;
-            }if(v[y] < v[x]){
-                x++;
-                y++;
-            }else if(v[y] > v[x] && v[y] < v[z]){
-                z--;
             }
-
         }
-        if(flag)
-        {
-            cout << "YES\n";
-            cout << x << " " << y << " " << z << endl;
-        }
-        else
-        {
+        if(flag){
             cout << "NO\n";
         }
     }
