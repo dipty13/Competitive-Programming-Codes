@@ -5,24 +5,22 @@
 using namespace std;
 int main()
 {
-    ll n, t, k, m, a, b, c, i;
+    ll t, n, a, b, c, i;
     cin >> t;
     while(t--)
     {
         cin >> n;
         vector<ll> v(n);
-        map<ll, ll> m;
         for(i = 0; i < n; i++){
             cin >> v[i];
         }
-        c = n - 1;
-        while(c > 0 && v[c - 1] >= v[c]){
-            c--;
+        for(i = n - 1; i >= 0; i--){
+            cout << v[i] <<  " ";
         }
-         while(c > 0 && v[c - 1] <= v[c]){
-            c--;
-        }
-        cout << c << endl;
+        cout << endl;
     }
+
+
     return 0;
 }
+

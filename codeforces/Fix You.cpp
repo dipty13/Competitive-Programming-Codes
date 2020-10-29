@@ -9,20 +9,20 @@ int main()
     cin >> t;
     while(t--)
     {
-        cin >> n;
-        vector<ll> v(n);
+        cin >> n >> m;
+        vector<string> v(n * m);
         map<ll, ll> m;
-        for(i = 0; i < n; i++){
+        ll odd = 0, even = 0;
+        for(i = 1; i <= n; i++){
             cin >> v[i];
         }
-        c = n - 1;
-        while(c > 0 && v[c - 1] >= v[c]){
-            c--;
+        a = n, b = m
+        while(i < n * m){
+            while(a != 1 && b != 1){
+                if(v[a][])
+            }
         }
-         while(c > 0 && v[c - 1] <= v[c]){
-            c--;
-        }
-        cout << c << endl;
+        cout << endl;
     }
     return 0;
 }

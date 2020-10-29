@@ -11,18 +11,17 @@ int main()
     {
         cin >> n;
         vector<ll> v(n);
-        map<ll, ll> m;
+        set<ll> s;
+        ll odd = 0, even = 0;
         for(i = 0; i < n; i++){
             cin >> v[i];
+            s.insert(v[i]);
         }
-        c = n - 1;
-        while(c > 0 && v[c - 1] >= v[c]){
-            c--;
+        if(s.size() > 1){
+            cout << 1 << endl;
+        }else{
+            cout << n << endl;
         }
-         while(c > 0 && v[c - 1] <= v[c]){
-            c--;
-        }
-        cout << c << endl;
     }
     return 0;
 }
