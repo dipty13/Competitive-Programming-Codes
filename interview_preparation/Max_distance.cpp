@@ -10,14 +10,18 @@ int maximumGap( vector<int> a) {
         v.push_back({a[i], i});
     }
     sort(v.begin(), v.end());
+//    for(int i = 0; i < v.size(); i++){
+//        cout << v[i].first << " " << v[i].second << endl;
+//    }
     int maxDistance = 0, maxIndex = v[v.size() - 1].second;
    for(int i = v.size() - 2; i >= 0; i--)
    {
-      cout << v[v.size() - 1].first << " " << maxIndex << endl;
-       maxDistance = max(maxDistance, maxIndex - v[i].second);
-       cout << maxDistance << endl;
-       maxIndex = max(maxIndex, v[i].second);
 
+       maxDistance = max(maxDistance, maxIndex - v[i].second);
+//       cout <<"dd " <<  maxDistance << endl;
+//               cout <<maxIndex << " cc " << v[i].second << endl;
+
+       maxIndex = max(maxIndex, v[i].second);
    }
     return  maxDistance;
 }
