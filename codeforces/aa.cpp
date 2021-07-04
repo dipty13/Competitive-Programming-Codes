@@ -10,10 +10,7 @@ int main()
     while(t--)
     {
         cin >> n >> a >> b >> c >> d;
-        if(isPossible(n, a,b, c, d))
-            cout << "Yes\n";
-        else
-            cout << "No\n";
+        cout << n << endl;
     }
 
 
